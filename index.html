@@ -286,67 +286,6 @@
 <pre><code>$db_link = mysql_connect($db_hostname, $db_username, $db_password);
 </code></pre><p>出现错误：</p>
 <pre><code>Fatal error: Uncaught Error: Call to undefined function mysql_connect() 
-</code></pre><p>查看<a href="http://php.net/manual/zh/mysqlinfo.api.choosing.php" target="_blank" rel="external">php官网针对MYSQL的扩展</a><br>错误的原因是由于php7将”mysql.dll”移除，所以到php根目录下修改配置文件php.ini：</p>
-<pre><code>extension_dir = &quot;D:/Program/php7/ext&quot;
-extension=php_curl.dll
-extension=php_gd2.dll
-extension=php_mbstring.dll 
-extension=php_mysqli.dll
-extension=php_pdo_mysql.dll
-extension=php_xmlrpc.dll
-</code></pre><p>重启apache服务器。</p>
-<p>使用mysqli的API连接数据库：</p>
-<pre><code>$db_link = mysqli_connect($db_hostname, $db_username, $db_password, $db_database);
-</code></pre><p>案例：</p>
-<pre><code>&lt;?php //mysqlcreate.php
-    $db_hostname = &apos;localhost&apos;;
-    $db_database = &apos;phpdb&apos;;
-    $db_username = &apos;php&apos;;
-    $db_password = &apos;zhang3&apos;;
-
-    $db_link = mysqli_connect($db_hostname, $db_username, $db_password, $db_database);
-    if($db_link) echo &quot;success!&quot;;
-    else echo &quot;connect error&quot;;
-
-    if(mysqli_connect_errno())echo &quot;connect failed:&quot; . mysqli_connect_error();
-
-    $usernames = array(
-        array(&apos;thepresident&apos;, &apos;iamprez&apos;, &apos;Barack&apos;, &apos;Obama&apos;),
-        array(&apos;elizabeth&apos;, &apos;oneisqueen&apos;, &apos;Elizabeth&apos;, &apos;Windsor&apos;),
-        array(&apos;superrich&apos;, &apos;windoz&apos;, &apos;Bill&apos;, &apos;Gates&apos;),
-        array(&apos;genius&apos;, &apos;e=mc2&apos;, &apos;Albert&apos;, &apos;Einstein&apos; )
-    );
-
-    $query = &quot;CREATE TABLE IF NOT EXISTS users(username VARCHAR(16),
-            password CHAR(32),
-            forename VARCHAR(32),
-            surname VARCHAR(32),
-            UNIQUE INDEX(username(6)),
-            INDEX(forename(8)),
-            INDEX(surname(8)))&quot;;
-
-    if(mysqli_query($db_link,$query) === true) echo &quot;creat success&quot;;
-    else echo &quot;\ncreat error:&quot; . mysqli_error($db_link);
-
-    for($i = 0; $i &lt; 4; $i++){
-        $u = $usernames[$i][0];
-        $p = $usernames[$i][1];
-        $f = $usernames[$i][2];
-        $s = $usernames[$i][3];
-        $query = &quot;INSERT INTO users VALUES(&apos;$u&apos;, &apos;$p&apos;, &apos;$f&apos;, &apos;$s&apos;)&quot;;
-
-        mysqli_query($db_link,$query);
-
-    }
-
-    if($result = mysqli_query($db_link,&quot;select * from users&quot;)){
-        printf(&quot;Select returned %d rows.\n&quot;, mysqli_num_rows($result));
-        mysqli_free_result($result);
-    }
-
-
-    mysqli_close($db_link);
-?&gt;
 </code></pre>
       
     </div>
@@ -356,6 +295,10 @@ extension=php_xmlrpc.dll
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/25/php7-connect-mysql/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -497,65 +440,6 @@ getName: function(){
 
       
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-theme-apollo" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/24/theme-apollo/" class="article-date">
-  	<time datetime="2016-04-24T15:43:03.000Z" itemprop="datePublished">2016-04-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/24/theme-apollo/">theme-apollo</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="meta-description"><a href="#meta-description" class="headerlink" title="meta description"></a>meta description</h1><ol>
-<li>在每篇的markdown文件的头部添加desc字段信息；</li>
-<li>或者在scaffolds文件夹中将desc配置到常用的模板中去。</li>
-</ol>
-<h3 id="文章摘要"><a href="#文章摘要" class="headerlink" title="文章摘要"></a>文章摘要</h3><p>在文章摘要之后其他内容之前添加HTML注释标签
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/24/theme-apollo/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
