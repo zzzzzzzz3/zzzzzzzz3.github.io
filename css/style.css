@@ -137,7 +137,7 @@ body,
   height: 100%;
 }
 body {
-  font-family: "Microsoft Yahei", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "微软雅黑", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   background: #fff;
   color: rgba(0,0,0,0.6);
@@ -994,15 +994,7 @@ a {
   margin-top: 0;
 }
 .article-entry em {
-  font-style: normal;
-  background: #fbedeb;
-  color: #e2678f;
-  padding: 0 5px;
-  margin: 0 2px;
-  font-size: 0.9em;
-  -webkit-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  font-style: italic;
 }
 .article-entry ul li:before {
   content: "";
