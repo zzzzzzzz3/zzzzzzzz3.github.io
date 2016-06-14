@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a>
+						<a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a>
 					</div>
 				</section>
 				
@@ -411,23 +411,7 @@ getName: function(){
 }
 </code></pre><p> }<br> A.getName();//this=A</p>
 </li>
-<li><p>函数调用模式<br>当函数不是对象的函数时，函数中的this表示全局变量：</p>
-<p> function f(){</p>
-<pre><code>this.name = &apos;global&apos;;
-</code></pre><p> }<br> f();//this=window</p>
-</li>
-<li><p>构造器调用模式<br>使用new调用的函数，其中的this指向的是被构造的对象：</p>
-<p> function f(){</p>
-<pre><code>this.name = &apos;className&apos;;
-</code></pre><p> }<br> var ff = new f();//this = ff</p>
-</li>
-<li><p>使用apply或call调用模式<br>函数中的this会绑定到apply或call方法中的第一个参数：</p>
-<p> function getName(name){</p>
-<pre><code>this.name = &apos;className&apos;;
-</code></pre><p> }<br> var f = {};<br> getName.call(f,name);//this = f</p>
-</li>
 </ol>
-
       
     </div>
     
@@ -440,6 +424,10 @@ getName: function(){
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/25/javascript-this/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -482,56 +470,11 @@ getName: function(){
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>转载于：<a href="http://www.ituring.com.cn/article/23" target="_blank" rel="external">图灵社区</a></p>
+        <p>转载于：<a href="http://www.ituring.com.cn/article/23">图灵社区</a></p>
 <pre><code>*斜体*
 **粗体**
 </code></pre><p><em>此处文字为斜体</em></p>
 <p><strong>此处文字为粗体</strong></p>
-<p>行的开头空四格表示代码</p>
-<pre><code>此处是代码。
-</code></pre><p>加前缀’&gt;’表示引用文字内容</p>
-<blockquote>
-<p>此处为引用的文字。</p>
-</blockquote>
-<h1 id="加前缀’-’表示一级标题"><a href="#加前缀’-’表示一级标题" class="headerlink" title="加前缀’#’表示一级标题"></a>加前缀’#’表示一级标题</h1><h2 id="‘-’表示二级标题"><a href="#‘-’表示二级标题" class="headerlink" title="‘##’表示二级标题"></a>‘##’表示二级标题</h2><p>以此类推。</p>
-<hr>
-<p>‘—‘表示分割线 如上</p>
-<p>加前缀’-‘表示无序列表，例如：</p>
-<ul>
-<li>无序列表</li>
-<li>无序列表</li>
-<li>无序列表</li>
-</ul>
-<p>加前缀’1.’表示有序列表， 例如：</p>
-<ol>
-<li>有序列表</li>
-<li>有序列表</li>
-<li>有序列表</li>
-</ol>
-<p>嵌套列表用’-‘和’+’表示，’-‘表示外层，’+’表示内层，例如</p>
-<ul>
-<li>外层<ul>
-<li>内层</li>
-<li>内层 </li>
-</ul>
-</li>
-<li>外层</li>
-</ul>
-<pre><code>链接：[图灵社区](http://www.ituring.com.cn)
-
-图像：![这是一个Logo图像](http://www.turingbook.com/Content/img/Turing.Gif)
-
-此外，还可以以索引方式把url都列在文章的最后，例如这样：
-
-[图灵社区][1]
-![图灵社区Logo][2]
-
-[1]:http://www.ituring.com.cn
-[2]:http://www.ituring.com.cn/Content/img/Turing.Gif
-</code></pre><p><a href="http://www.ituring.com.cn" target="_blank" rel="external">图灵社区</a></p>
-<p><img src="http://www.turingbook.com/Content/img/Turing.Gif" alt="这是一个Logo图像"></p>
-<p><a href="http://www.ituring.com.cn" target="_blank" rel="external">图灵社区</a><br><img src="http://www.ituring.com.cn/Content/img/Turing.Gif" alt="图灵社区Logo"></p>
-
       
     </div>
     
@@ -539,11 +482,15 @@ getName: function(){
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
 	</div>
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/24/How-to-use-Markdown/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

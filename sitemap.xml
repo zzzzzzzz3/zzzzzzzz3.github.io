@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/04/25/ajax-post/</loc>
+    
+    <lastmod>2016-06-14T09:59:58.042Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/04/24/How-to-use-Markdown/</loc>
+    
+    <lastmod>2016-06-14T09:57:18.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/04/25/javascript-this/</loc>
+    
+    <lastmod>2016-06-14T09:55:45.511Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/04/25/php7-connect-mysql/</loc>
     
     <lastmod>2016-06-14T09:53:55.503Z</lastmod>
@@ -12,27 +33,6 @@
     <loc>http://yoursite.com/2016/05/14/First/</loc>
     
     <lastmod>2016-05-14T06:55:31.543Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/04/25/ajax-post/</loc>
-    
-    <lastmod>2016-05-14T06:55:31.527Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/04/25/javascript-this/</loc>
-    
-    <lastmod>2016-05-14T06:55:31.527Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/04/24/How-to-use-Markdown/</loc>
-    
-    <lastmod>2016-05-14T06:55:31.527Z</lastmod>
     
   </url>
   
