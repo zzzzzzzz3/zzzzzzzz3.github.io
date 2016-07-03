@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>ajax_post | ZhangRongHua</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ajax post 请求的案例：                                    Fetch web page                                                        The HTML will appear here                                        //post方法需要三个参">
+  <meta name="description" content="ajax post 请求的案例：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ajax_post">
 <meta property="og:url" content="http://yoursite.com/2016/04/25/ajax-post/index.html">
 <meta property="og:site_name" content="ZhangRongHua">
-<meta property="og:description" content="ajax post 请求的案例：                                    Fetch web page                                                        The HTML will appear here                                        //post方法需要三个参">
-<meta property="og:updated_time" content="2016-06-14T10:02:34.707Z">
+<meta property="og:description" content="ajax post 请求的案例：">
+<meta property="og:updated_time" content="2016-06-14T10:04:39.827Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ajax_post">
-<meta name="twitter:description" content="ajax post 请求的案例：                                    Fetch web page                                                        The HTML will appear here                                        //post方法需要三个参">
+<meta name="twitter:description" content="ajax post 请求的案例：">
   
     <link rel="alternative" href="/atom.xml" title="ZhangRongHua" type="application/atom+xml">
   
@@ -238,8 +238,74 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ajax post 请求的案例：<br>    <html><br>        <head><br>            <title><br>            Fetch web page<br>            </title><br>        </head><br>        <body><br>            <div id="mydiv"><br>                The HTML will appear here<br>            </div><br>            <script><br>                //post方法需要三个参数（回调函数，PHP程序url，传递给PHP程序的信息）<br>                PostAjaxRequest(insert, ‘fetchurl.php’, ‘u=pluginphp.com’)<br>                //创建回调函数<br>                function insert(){<br>                    //将获取到的html赋值给mydiv对象的内容<br>                    document.getElementById(‘mydiv’).innerHTML = this<br>                }<br>                //编写post请求<br>                function PostAjaxRequest(callback, url, args){<br>                    var contenttype = ‘application/x-www-form-urlencoded’<br>                    var ajax = new CreateAjaxObject(callback)<br>                    if(ajax == null) return false<br>                    //设置请求的类型 服务器文件的URL 是否异步处理<br>                    ajax.open(‘POST’, url, true)<br>                    //设置HTTP头<br>                    ajax.setRequestHeader(‘Content-type’, contenttype)<br>                    ajax.setRequestHeader(‘Content-length’, args.length)<br>                    ajax.setRequestHeader(‘Connection’, ‘close’)<br>                    //将请求发送给服务器<br>                    ajax.send(args)<br>                    return true<br>                }<br>                //创建ajax对象<br>                function CreateAjaxObject(callback){<br>                    //尝试用三种方法分别创建ajax<br>                    //成功则返回ajax对象，否则返回false<br>                    try{<br>                        var ajax = new XMLHttpRequest()<br>                    }<br>                    catch(e1){<br>                        try{<br>                            var ajax = new ActiveXObject(“Msxml2.XMLHTTP”)<br>                        }<br>                        catch(e2){<br>                            try{<br>                                var ajax = new ActiveXObject(“Microsoft.XMLHTTP”)<br>                            }<br>                            catch(e3){<br>                                ajax = false<br>                            }<br>                        }<br>                    }<br>                    //设置ajax的异步函数<br>                    if(ajax) ajax.onreadystatechange = function(){<br>                        //一旦接受到服务器的响应，将立即设置传递来的回调函数，并调用<br>                        if(this.readyState == 4 &amp;&amp; this.status == 200 &amp;&amp; this.responseText != null){<br>                        callback.call(this.responseText)<br>                        }<br>                    }<br>                    return ajax<br>                }<br>            </script><br>        </body><br>    </html> </p>
-<p>其中的fetchurl.php为：</p>
+        <p>ajax post 请求的案例：</p>
+<a id="more"></a>
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;
+        Fetch web page
+        &lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id = &apos;mydiv&apos;&gt;
+            The HTML will appear here
+        &lt;/div&gt;
+        &lt;script&gt;
+            //post方法需要三个参数（回调函数，PHP程序url，传递给PHP程序的信息）
+            PostAjaxRequest(insert, &apos;fetchurl.php&apos;, &apos;u=pluginphp.com&apos;)
+            //创建回调函数
+            function insert(){
+                //将获取到的html赋值给mydiv对象的内容
+                document.getElementById(&apos;mydiv&apos;).innerHTML = this
+            }
+            //编写post请求
+            function PostAjaxRequest(callback, url, args){
+                var contenttype = &apos;application/x-www-form-urlencoded&apos;
+                var ajax = new CreateAjaxObject(callback)
+                if(ajax == null) return false
+                //设置请求的类型 服务器文件的URL 是否异步处理
+                ajax.open(&apos;POST&apos;, url, true)
+                //设置HTTP头
+                ajax.setRequestHeader(&apos;Content-type&apos;, contenttype)
+                ajax.setRequestHeader(&apos;Content-length&apos;, args.length)
+                ajax.setRequestHeader(&apos;Connection&apos;, &apos;close&apos;)
+                //将请求发送给服务器
+                ajax.send(args)
+                return true
+            }
+            //创建ajax对象
+            function CreateAjaxObject(callback){
+                //尝试用三种方法分别创建ajax
+                //成功则返回ajax对象，否则返回false
+                try{
+                    var ajax = new XMLHttpRequest()
+                }
+                catch(e1){
+                    try{
+                        var ajax = new ActiveXObject(&quot;Msxml2.XMLHTTP&quot;)
+                    }
+                    catch(e2){
+                        try{
+                            var ajax = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;) 
+                        }
+                        catch(e3){
+                            ajax = false
+                        }
+                    }
+                }
+                //设置ajax的异步函数
+                if(ajax) ajax.onreadystatechange = function(){
+                    //一旦接受到服务器的响应，将立即设置传递来的回调函数，并调用
+                    if(this.readyState == 4 &amp;&amp; this.status == 200 &amp;&amp; this.responseText != null){
+                    callback.call(this.responseText)
+                    }
+                }
+                return ajax
+            }
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt; 
+</code></pre><p>其中的fetchurl.php为：</p>
 <pre><code>&lt;?php
     echo file_get_contents(&apos;http://&apos; . $_POST[&apos;u&apos;]);
 ?&gt;

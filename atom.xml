@@ -134,10 +134,76 @@ extension=php_xmlrpc.dll
     <link href="http://yoursite.com/2016/04/25/ajax-post/"/>
     <id>http://yoursite.com/2016/04/25/ajax-post/</id>
     <published>2016-04-25T11:18:16.000Z</published>
-    <updated>2016-06-14T10:02:34.707Z</updated>
+    <updated>2016-06-14T10:04:39.827Z</updated>
     
-    <content type="html">&lt;p&gt;ajax post 请求的案例：&lt;br&gt;    &lt;html&gt;&lt;br&gt;        &lt;head&gt;&lt;br&gt;            &lt;title&gt;&lt;br&gt;            Fetch web page&lt;br&gt;            &lt;/title&gt;&lt;br&gt;        &lt;/head&gt;&lt;br&gt;        &lt;body&gt;&lt;br&gt;            &lt;div id=&quot;mydiv&quot;&gt;&lt;br&gt;                The HTML will appear here&lt;br&gt;            &lt;/div&gt;&lt;br&gt;            &lt;script&gt;&lt;br&gt;                //post方法需要三个参数（回调函数，PHP程序url，传递给PHP程序的信息）&lt;br&gt;                PostAjaxRequest(insert, ‘fetchurl.php’, ‘u=pluginphp.com’)&lt;br&gt;                //创建回调函数&lt;br&gt;                function insert(){&lt;br&gt;                    //将获取到的html赋值给mydiv对象的内容&lt;br&gt;                    document.getElementById(‘mydiv’).innerHTML = this&lt;br&gt;                }&lt;br&gt;                //编写post请求&lt;br&gt;                function PostAjaxRequest(callback, url, args){&lt;br&gt;                    var contenttype = ‘application/x-www-form-urlencoded’&lt;br&gt;                    var ajax = new CreateAjaxObject(callback)&lt;br&gt;                    if(ajax == null) return false&lt;br&gt;                    //设置请求的类型 服务器文件的URL 是否异步处理&lt;br&gt;                    ajax.open(‘POST’, url, true)&lt;br&gt;                    //设置HTTP头&lt;br&gt;                    ajax.setRequestHeader(‘Content-type’, contenttype)&lt;br&gt;                    ajax.setRequestHeader(‘Content-length’, args.length)&lt;br&gt;                    ajax.setRequestHeader(‘Connection’, ‘close’)&lt;br&gt;                    //将请求发送给服务器&lt;br&gt;                    ajax.send(args)&lt;br&gt;                    return true&lt;br&gt;                }&lt;br&gt;                //创建ajax对象&lt;br&gt;                function CreateAjaxObject(callback){&lt;br&gt;                    //尝试用三种方法分别创建ajax&lt;br&gt;                    //成功则返回ajax对象，否则返回false&lt;br&gt;                    try{&lt;br&gt;                        var ajax = new XMLHttpRequest()&lt;br&gt;                    }&lt;br&gt;                    catch(e1){&lt;br&gt;                        try{&lt;br&gt;                            var ajax = new ActiveXObject(“Msxml2.XMLHTTP”)&lt;br&gt;                        }&lt;br&gt;                        catch(e2){&lt;br&gt;                            try{&lt;br&gt;                                var ajax = new ActiveXObject(“Microsoft.XMLHTTP”)&lt;br&gt;                            }&lt;br&gt;                            catch(e3){&lt;br&gt;                                ajax = false&lt;br&gt;                            }&lt;br&gt;                        }&lt;br&gt;                    }&lt;br&gt;                    //设置ajax的异步函数&lt;br&gt;                    if(ajax) ajax.onreadystatechange = function(){&lt;br&gt;                        //一旦接受到服务器的响应，将立即设置传递来的回调函数，并调用&lt;br&gt;                        if(this.readyState == 4 &amp;amp;&amp;amp; this.status == 200 &amp;amp;&amp;amp; this.responseText != null){&lt;br&gt;                        callback.call(this.responseText)&lt;br&gt;                        }&lt;br&gt;                    }&lt;br&gt;                    return ajax&lt;br&gt;                }&lt;br&gt;            &lt;/script&gt;&lt;br&gt;        &lt;/body&gt;&lt;br&gt;    &lt;/html&gt; &lt;/p&gt;
-&lt;p&gt;其中的fetchurl.php为：&lt;/p&gt;
+    <content type="html">&lt;p&gt;ajax post 请求的案例：&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;html&amp;gt;
+    &amp;lt;head&amp;gt;
+        &amp;lt;title&amp;gt;
+        Fetch web page
+        &amp;lt;/title&amp;gt;
+    &amp;lt;/head&amp;gt;
+    &amp;lt;body&amp;gt;
+        &amp;lt;div id = &amp;apos;mydiv&amp;apos;&amp;gt;
+            The HTML will appear here
+        &amp;lt;/div&amp;gt;
+        &amp;lt;script&amp;gt;
+            //post方法需要三个参数（回调函数，PHP程序url，传递给PHP程序的信息）
+            PostAjaxRequest(insert, &amp;apos;fetchurl.php&amp;apos;, &amp;apos;u=pluginphp.com&amp;apos;)
+            //创建回调函数
+            function insert(){
+                //将获取到的html赋值给mydiv对象的内容
+                document.getElementById(&amp;apos;mydiv&amp;apos;).innerHTML = this
+            }
+            //编写post请求
+            function PostAjaxRequest(callback, url, args){
+                var contenttype = &amp;apos;application/x-www-form-urlencoded&amp;apos;
+                var ajax = new CreateAjaxObject(callback)
+                if(ajax == null) return false
+                //设置请求的类型 服务器文件的URL 是否异步处理
+                ajax.open(&amp;apos;POST&amp;apos;, url, true)
+                //设置HTTP头
+                ajax.setRequestHeader(&amp;apos;Content-type&amp;apos;, contenttype)
+                ajax.setRequestHeader(&amp;apos;Content-length&amp;apos;, args.length)
+                ajax.setRequestHeader(&amp;apos;Connection&amp;apos;, &amp;apos;close&amp;apos;)
+                //将请求发送给服务器
+                ajax.send(args)
+                return true
+            }
+            //创建ajax对象
+            function CreateAjaxObject(callback){
+                //尝试用三种方法分别创建ajax
+                //成功则返回ajax对象，否则返回false
+                try{
+                    var ajax = new XMLHttpRequest()
+                }
+                catch(e1){
+                    try{
+                        var ajax = new ActiveXObject(&amp;quot;Msxml2.XMLHTTP&amp;quot;)
+                    }
+                    catch(e2){
+                        try{
+                            var ajax = new ActiveXObject(&amp;quot;Microsoft.XMLHTTP&amp;quot;) 
+                        }
+                        catch(e3){
+                            ajax = false
+                        }
+                    }
+                }
+                //设置ajax的异步函数
+                if(ajax) ajax.onreadystatechange = function(){
+                    //一旦接受到服务器的响应，将立即设置传递来的回调函数，并调用
+                    if(this.readyState == 4 &amp;amp;&amp;amp; this.status == 200 &amp;amp;&amp;amp; this.responseText != null){
+                    callback.call(this.responseText)
+                    }
+                }
+                return ajax
+            }
+        &amp;lt;/script&amp;gt;
+    &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其中的fetchurl.php为：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
     echo file_get_contents(&amp;apos;http://&amp;apos; . $_POST[&amp;apos;u&amp;apos;]);
 ?&amp;gt;
@@ -146,7 +212,7 @@ extension=php_xmlrpc.dll
     
     <summary type="html">
     
-      &lt;p&gt;ajax post 请求的案例：&lt;br&gt;    &lt;html&gt;&lt;br&gt;        &lt;head&gt;&lt;br&gt;            &lt;title&gt;&lt;br&gt;            Fetch web page&lt;br&gt;            &lt;/title&gt;&lt;br&gt;        
+      &lt;p&gt;ajax post 请求的案例：&lt;/p&gt;
     
     </summary>
     
@@ -160,7 +226,7 @@ extension=php_xmlrpc.dll
     <link href="http://yoursite.com/2016/04/25/javascript-this/"/>
     <id>http://yoursite.com/2016/04/25/javascript-this/</id>
     <published>2016-04-25T09:23:36.000Z</published>
-    <updated>2016-06-14T10:02:34.703Z</updated>
+    <updated>2016-06-14T10:04:39.824Z</updated>
     
     <content type="html">&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;方法调用模式&lt;br&gt;在一个对象的函数中，this表示该对象：&lt;/p&gt;
@@ -217,7 +283,7 @@ getName: function(){
     <link href="http://yoursite.com/2016/04/24/How-to-use-Markdown/"/>
     <id>http://yoursite.com/2016/04/24/How-to-use-Markdown/</id>
     <published>2016-04-24T12:23:40.000Z</published>
-    <updated>2016-06-14T10:02:34.705Z</updated>
+    <updated>2016-06-14T10:04:39.825Z</updated>
     
     <content type="html">&lt;p&gt;转载于：&lt;a href=&quot;http://www.ituring.com.cn/article/23&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;图灵社区&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;*斜体*

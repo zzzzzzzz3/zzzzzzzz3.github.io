@@ -345,13 +345,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ajax post 请求的案例：<br>    <html><br>        <head><br>            <title><br>            Fetch web page<br>            </title><br>        </head><br>        <body><br>            <div id="mydiv"><br>                The HTML will appear here<br>            </div><br>            <script><br>                //post方法需要三个参数（回调函数，PHP程序url，传递给PHP程序的信息）<br>                PostAjaxRequest(insert, ‘fetchurl.php’, ‘u=pluginphp.com’)<br>                //创建回调函数<br>                function insert(){<br>                    //将获取到的html赋值给mydiv对象的内容<br>                    document.getElementById(‘mydiv’).innerHTML = this<br>                }<br>                //编写post请求<br>                function PostAjaxRequest(callback, url, args){<br>                    var contenttype = ‘application/x-www-form-urlencoded’<br>                    var ajax = new CreateAjaxObject(callback)<br>                    if(ajax == null) return false<br>                    //设置请求的类型 服务器文件的URL 是否异步处理<br>                    ajax.open(‘POST’, url, true)<br>                    //设置HTTP头<br>                    ajax.setRequestHeader(‘Content-type’, contenttype)<br>                    ajax.setRequestHeader(‘Content-length’, args.length)<br>                    ajax.setRequestHeader(‘Connection’, ‘close’)<br>                    //将请求发送给服务器<br>                    ajax.send(args)<br>                    return true<br>                }<br>                //创建ajax对象<br>                function CreateAjaxObject(callback){<br>                    //尝试用三种方法分别创建ajax<br>                    //成功则返回ajax对象，否则返回false<br>                    try{<br>                        var ajax = new XMLHttpRequest()<br>                    }<br>                    catch(e1){<br>                        try{<br>                            var ajax = new ActiveXObject(“Msxml2.XMLHTTP”)<br>                        }<br>                        catch(e2){<br>                            try{<br>                                var ajax = new ActiveXObject(“Microsoft.XMLHTTP”)<br>                            }<br>                            catch(e3){<br>                                ajax = false<br>                            }<br>                        }<br>                    }<br>                    //设置ajax的异步函数<br>                    if(ajax) ajax.onreadystatechange = function(){<br>                        //一旦接受到服务器的响应，将立即设置传递来的回调函数，并调用<br>                        if(this.readyState == 4 &amp;&amp; this.status == 200 &amp;&amp; this.responseText != null){<br>                        callback.call(this.responseText)<br>                        }<br>                    }<br>                    return ajax<br>                }<br>            </script><br>        </body><br>    </html> </p>
-<p>其中的fetchurl.php为：</p>
-<pre><code>&lt;?php
-    echo file_get_contents(&apos;http://&apos; . $_POST[&apos;u&apos;]);
-?&gt;
-</code></pre><p>这里有一篇ajax向服务器请求的<a href="http://www.w3school.com.cn/ajax/ajax_xmlhttprequest_send.asp" target="_blank" rel="external">博文</a>讲的很详细</p>
-
+        <p>ajax post 请求的案例：</p>
       
     </div>
     
@@ -364,6 +358,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/25/ajax-post/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
